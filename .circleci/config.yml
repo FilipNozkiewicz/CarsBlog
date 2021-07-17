@@ -19,7 +19,7 @@ jobs:
          name: Verify PEP8
          command: |
            . venv/bin/activate
-           flake8 carsblog
+           flake8 --ignore=E501 carsblog/carsblog/settings.py carsblog
 workflows:
   sample:
     jobs:
