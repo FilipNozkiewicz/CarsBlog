@@ -1,0 +1,33 @@
+version: 2.1
+workflows:
+  sample:
+    jobs:
+      - build-and-test
+jobs:
+  build-and-test:
+    docker:
+      - image: cimg/python:3.8.4
+    steps:
+      - checkout
+      - python/install-packages:
+          pkg-manager: pip
+      - run:
+         name: Prepare environment
+         command: |
+           python3 -m venv venv
+           . venv/bin/activate
+           pip install -r requirements.txt
+      - run:
+         name: Verify PEP8
+         command: |
+           venv/bin/activate
+           flake8 carsblog
+workflows:
+ testing:
+   jobs:
+     - build-and-test:
+         filters:
+           branches:
+             only:
+               - develop
+               - main
