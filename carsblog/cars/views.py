@@ -20,3 +20,4 @@ class CarView(viewsets.ModelViewSet):
             return Response("Created")
         else:
             return Response(f"Errors {ser.errors}")
+

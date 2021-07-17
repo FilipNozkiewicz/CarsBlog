@@ -5,3 +5,4 @@ router = routers.DefaultRouter()
 router.register('api/cars', CarView, 'car')
 
 urlpatterns = router.urls
+
