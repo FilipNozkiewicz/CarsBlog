@@ -11,5 +11,3 @@ class Car(models.Model):
     body_type = models.CharField(max_length=30)
     fuel_type = models.CharField(max_length=30)
     description = models.TextField()
-
-# Create your models here.
