@@ -1,8 +1,6 @@
 version: 2.1
-workflows:
-  sample:
-    jobs:
-      - build-and-test
+orbs:
+  python: circleci/python@1.4.0
 jobs:
   build-and-test:
     docker:
@@ -22,12 +20,7 @@ jobs:
          command: |
            venv/bin/activate
            flake8 carsblog
-#workflows:
-# testing:
-#   jobs:
-#     - build-and-test:
-#         filters:
-#           branches:
-#             only:
-#               - develop
-#               - main
+workflows:
+  sample:
+    jobs:
+      - build-and-test
